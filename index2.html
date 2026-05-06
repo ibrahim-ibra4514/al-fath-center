@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مركز الفتح | حجز موعد احترافي</title>
+    <style>
+        /* تعريف الألوان والهوية البصرية */
+        :root {
+            --main-color: #1a5f7a; /* أزرق طبي عميق */
+            --accent-color: #27ae60; /* أخضر علاجي */
+            --bg-color: #f8fafc;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* حاوية اللوغو */
+        .logo-container {
+            margin-top: 40px;
+            margin-bottom: -50px;
+            z-index: 10;
+        }
+
+        .logo-container img {
+            width: 120px; /* يمكنك تعديل المقاس حسب شكل اللوغو */
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--white);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            background-color: var(--white);
+        }
+
+        .header-banner {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, var(--main-color) 0%, #2980b9 100%);
+            border-radius: 0 0 50px 50px;
+        }
+
+        .card {
+            width: 90%;
+            max-width: 450px;
+            background: var(--white);
+            border-radius: 25px;
+            padding: 60px 30px 30px 30px; /* تباعد علوي كبير لترك مساحة للوغو */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: var(--main-color);
+            margin: 10px 0 5px 0;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .chiro-badge {
+            background: #eff6ff;
+            color: var(--main-color);
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 13px;
+            border-right: 4px solid var(--main-color);
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: 600;
+            color: #444;
+            font-size: 14px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 14px;
+            margin-top: 8px;
+            border: 1.5px solid #eee;
+            border-radius: 12px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: 0.3s;
+            background: #fdfdfd;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--main-color);
+            outline: none;
+            background: #fff;
+        }
+
+        .btn-whatsapp {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 16px;
+            width: 100%;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: transform 0.2s;
+        }
+
+        .btn-whatsapp:active {
+            transform: scale(0.98);
+        }
+
+        .footer-text {
+            color: #999;
+            font-size: 12px;
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-banner"></div>
+
+    <div class="logo-container">
+        <!-- استبدل الرابط أدناه برابط لوغو المركز الخاص بك -->
+        <img src="https://via.placeholder.com/150?text=LOGO" alt="لوغو مركز الفتح">
+    </div>
+
+    <div class="card">
+        <h1>مركز الفتح</h1>
+        <p class="subtitle">للحجامة والكيروبراكتيك الحديث</p>
+
+        <div class="chiro-badge">
+            ✅ <strong>تخصص الكيروبراكتيك:</strong> علاج آلام الظهر، الرقبة، والمفاصل بأحدث تقنيات التقويم اليدوي.
+        </div>
+
+        <form id="bookingForm">
+            <label>الاسم الكامل</label>
+            <input type="text" id="name" placeholder="أدخل اسمك هنا" required>
+
+            <label>رقم الهاتف</label>
+            <input type="tel" id="phone" placeholder="06XXXXXXXX" required>
+
+            <label>نوع الحصة</label>
+            <select id="service">
+                <option value="كيروبراكتيك (تقويم العظام)">تقويم العمود الفقري (كيروبراكتيك)</option>
+                <option value="حجامة طبية">حجامة طبية وعلاجية</option>
+                <option value="حصة مختلطة (كيروبراكتيك + حجامة)">حصة مختلطة (كيروبراكتيك + حجامة)</option>
+            </select>
+
+            <label>التاريخ المفضل</label>
+            <input type="date" id="date" required>
+
+            <button type="button" onclick="sendToWhatsApp()" class="btn-whatsapp">
+                تأكيد الحجز عبر واتساب 
+            </button>
+        </form>
+        <p class="footer-text">سيتم الرد عليك فوراً لتأكيد الساعة المحددة</p>
+    </div>
+
+    <script>
+        function sendToWhatsApp() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const date = document.getElementById('date').value;
+            
+            if(!name || !phone || !date) {
+                alert("المرجو ملء جميع المعلومات المطلوبة");
+                return;
+            }
+
+            // ضع رقم واتساب المركز هنا (بدون + أو أصفار في البداية)
+            const whatsappNumber = "2126XXXXXXXX"; 
+            
+            const message = `مرحباً مركز الفتح%0Aلقد قمت بحجز موعد عبر الموقع:%0A%0A👤 *الاسم:* ${name}%0A📞 *الهاتف:* ${phone}%0A💉 *الخدمة:* ${service}%0A📅 *التاريخ:* ${date}%0A%0Aالمرجو تأكيد الموعد معي.`;
+            
+            window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+        }
+    </script>
+
+</body>
+</html>
